@@ -47,7 +47,7 @@ function Home({ cart, setCart }) {
 
   return (
     <div className='Home'>
-      <header style={{backgroundImage: "url(https://img.freepik.com/premium-photo/winter-sale-new-year-christmas-holiday-shopping-concept-shopping-cart-red-percentage-sign-snow-effect-background-christmas-new-year-sale-concept_256259-3425.jpg)", backgroundSize: "cover", width: "1245px", height: "500px", marginLeft: "50px", color: "white", display: "flex", alignItems: "center"}}>
+      <header style={{backgroundImage: "url(https://img.freepik.com/premium-photo/winter-sale-new-year-christmas-holiday-shopping-concept-shopping-cart-red-percentage-sign-snow-effect-background-christmas-new-year-sale-concept_256259-3425.jpg)", backgroundSize: "cover", width: "100%", height: "700px", margin: "0 auto", backgroundPosition: "center", color: "white", display: "flex", alignItems: "center" }}>
         <div>
           <h1 style={{ marginLeft: "50px" }}>
             <b>Yangi <br /> yil uchun <br /> sovg'alar do'koni</b>
