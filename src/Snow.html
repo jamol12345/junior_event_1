@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snow Effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      background: url("bg.jpg") no-repeat center center/cover;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlLO5-P6cYinXQDmxmjhbJ0PRnSFWQhxLh1g&s" alt="">
+<canvas id="snow"></canvas>
+
+<script>
+  const canvas = document.getElementById("snow");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const snowflakes = [];
+
+  for (let i = 0; i < 150; i++) {
+    snowflakes.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 4 + 1,
+      speed: Math.random() * 1 + 0.5
+    });
+  }
+
+  function drawSnow() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+
+    for (let i = 0; i < snowflakes.length; i++) {
+      const f = snowflakes[i];
+      ctx.moveTo(f.x, f.y);
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+    }
+
+    ctx.fill();
+    moveSnow();
+  }
+
+  function moveSnow() {
+    for (let i = 0; i < snowflakes.length; i++) {
+      const f = snowflakes[i];
+      f.y += f.speed;
+
+      if (f.y > canvas.height) {
+        f.y = 0;
+        f.x = Math.random() * canvas.width;
+      }
+    }
+  }
+
+  setInterval(drawSnow, 30);
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+  </script>
+
+</body>
+</html>
